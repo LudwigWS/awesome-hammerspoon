@@ -23,15 +23,19 @@
     "Constructor" : [
 
     ],
-    "doc" : "Keybindings cheatsheet for current application\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/KSheet.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/KSheet.spoon.zip)",
+    "Field" : [
+
+    ],
     "Method" : [
       {
         "doc" : "Show current application's keybindings in a webview",
-        "name" : "show",
-        "desc" : "Show current application's keybindings in a webview",
         "stripped_doc" : [
           "Show current application's keybindings in a webview"
         ],
+        "parameters" : [
+
+        ],
+        "def" : "KSheet:show()",
         "notes" : [
 
         ],
@@ -40,18 +44,18 @@
         "returns" : [
 
         ],
-        "def" : "KSheet:show()",
-        "parameters" : [
-
-        ]
+        "name" : "show",
+        "desc" : "Show current application's keybindings in a webview"
       },
       {
         "doc" : "Hide the cheatsheet webview",
-        "name" : "hide",
-        "desc" : "Hide the cheatsheet webview",
         "stripped_doc" : [
           "Hide the cheatsheet webview"
         ],
+        "parameters" : [
+
+        ],
+        "def" : "KSheet:hide()",
         "notes" : [
 
         ],
@@ -60,26 +64,23 @@
         "returns" : [
 
         ],
-        "def" : "KSheet:hide()",
-        "parameters" : [
-
-        ]
+        "name" : "hide",
+        "desc" : "Hide the cheatsheet webview"
       }
     ],
     "Command" : [
 
     ],
-    "Field" : [
-
-    ],
     "items" : [
       {
         "doc" : "Hide the cheatsheet webview",
-        "name" : "hide",
-        "desc" : "Hide the cheatsheet webview",
         "stripped_doc" : [
           "Hide the cheatsheet webview"
         ],
+        "parameters" : [
+
+        ],
+        "def" : "KSheet:hide()",
         "notes" : [
 
         ],
@@ -88,18 +89,18 @@
         "returns" : [
 
         ],
-        "def" : "KSheet:hide()",
-        "parameters" : [
-
-        ]
+        "name" : "hide",
+        "desc" : "Hide the cheatsheet webview"
       },
       {
         "doc" : "Show current application's keybindings in a webview",
-        "name" : "show",
-        "desc" : "Show current application's keybindings in a webview",
         "stripped_doc" : [
           "Show current application's keybindings in a webview"
         ],
+        "parameters" : [
+
+        ],
+        "def" : "KSheet:show()",
         "notes" : [
 
         ],
@@ -108,12 +109,11 @@
         "returns" : [
 
         ],
-        "def" : "KSheet:show()",
-        "parameters" : [
-
-        ]
+        "name" : "show",
+        "desc" : "Show current application's keybindings in a webview"
       }
     ],
+    "doc" : "Keybindings cheatsheet for current application\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/KSheet.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/KSheet.spoon.zip)",
     "name" : "KSheet"
   }
 ]

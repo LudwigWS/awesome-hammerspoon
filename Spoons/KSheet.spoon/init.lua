@@ -49,7 +49,7 @@ local function processMenuItems(menustru)
                         for key, value in pairs(val.AXMenuItemCmdModifiers) do
                             CmdModifiers = CmdModifiers .. obj.commandEnum[value]
                         end
-                        local CmdChar = val.AXMenuItemCmdChar
+                        local CmdChr = val.AXMenuItemCmdChar
                         local CmdGlyph = hs.application.menuGlyphs[val.AXMenuItemCmdGlyph] or ''
                         local CmdKeys = CmdChar .. CmdGlyph
                         menu = menu .. "<li><div class='cmdModifiers'>" .. CmdModifiers .. " " .. CmdKeys .. "</div><div class='cmdtext'>" .. " " .. val.AXTitle .. "</div></li>"

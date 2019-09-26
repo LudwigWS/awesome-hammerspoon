@@ -1,6 +1,7 @@
 hs.hotkey.alertDuration = 0
 hs.hints.showTitleThresh = 0
 hs.window.animationDuration = 0
+hs.allowAppleScript(true)
 
 -- Use the standardized config location, if present
 custom_config = hs.fs.pathToAbsolute(os.getenv("HOME") .. '/.config/hammerspoon/private/config.lua')
@@ -59,13 +60,13 @@ end
 -- Then we create/register all kinds of modal keybindings environments.
 ----------------------------------------------------------------------------------------------------
 -- Register windowHints (Register a keybinding which is NOT modal environment with modal supervisor)
-hswhints_keys = hswhints_keys or {"alt", "tab"}
-if string.len(hswhints_keys[2]) > 0 then
-    spoon.ModalMgr.supervisor:bind(hswhints_keys[1], hswhints_keys[2], 'Show Window Hints', function()
-        spoon.ModalMgr:deactivateAll()
-        hs.hints.windowHints()
-    end)
-end
+--hswhints_keys = hswhints_keys or {"alt", "tab"}
+--if string.len(hswhints_keys[2]) > 0 then
+--    spoon.ModalMgr.supervisor:bind(hswhints_keys[1], hswhints_keys[2], 'Show Window Hints', function()
+--        spoon.ModalMgr:deactivateAll()
+--        hs.hints.windowHints()
+--    end)
+--end
 
 ----------------------------------------------------------------------------------------------------
 -- appM modal environment
@@ -101,14 +102,14 @@ for _, v in ipairs(hsapp_list) do
 end
 
 -- Then we register some keybindings with modal supervisor
-hsappM_keys = hsappM_keys or {"alt", "A"}
-if string.len(hsappM_keys[2]) > 0 then
-    spoon.ModalMgr.supervisor:bind(hsappM_keys[1], hsappM_keys[2], "Enter AppM Environment", function()
-        spoon.ModalMgr:deactivateAll()
-        -- Show the keybindings cheatsheet once appM is activated
-        spoon.ModalMgr:activate({"appM"}, "#FFBD2E", true)
-    end)
-end
+-- hsappM_keys = hsappM_keys or {"alt", "A"}
+-- if string.len(hsappM_keys[2]) > 0 then
+--     spoon.ModalMgr.supervisor:bind(hsappM_keys[1], hsappM_keys[2], "Enter AppM Environment", function()
+--         spoon.ModalMgr:deactivateAll()
+--         -- Show the keybindings cheatsheet once appM is activated
+--         spoon.ModalMgr:activate({"appM"}, "#FFBD2E", true)
+--     end)
+-- end
 
 ----------------------------------------------------------------------------------------------------
 -- clipshowM modal environment
@@ -205,14 +206,14 @@ end
 
 ----------------------------------------------------------------------------------------------------
 -- Register Hammerspoon API manual: Open Hammerspoon manual in default browser
-hsman_keys = hsman_keys or {"alt", "H"}
-if string.len(hsman_keys[2]) > 0 then
-    spoon.ModalMgr.supervisor:bind(hsman_keys[1], hsman_keys[2], "Read Hammerspoon Manual", function()
-        hs.doc.hsdocs.forceExternalBrowser(true)
-        hs.doc.hsdocs.moduleEntitiesInSidebar(true)
-        hs.doc.hsdocs.help()
-    end)
-end
+-- hsman_keys = hsman_keys or {"alt", "H"}
+-- if string.len(hsman_keys[2]) > 0 then
+--     spoon.ModalMgr.supervisor:bind(hsman_keys[1], hsman_keys[2], "Read Hammerspoon Manual", function()
+--         hs.doc.hsdocs.forceExternalBrowser(true)
+--         hs.doc.hsdocs.moduleEntitiesInSidebar(true)
+--         hs.doc.hsdocs.help()
+--     end)
+-- end
 
 ----------------------------------------------------------------------------------------------------
 -- countdownM modal environment
@@ -254,12 +255,12 @@ end
 
 ----------------------------------------------------------------------------------------------------
 -- Register lock screen
-hslock_keys = hslock_keys or {"alt", "L"}
-if string.len(hslock_keys[2]) > 0 then
-    spoon.ModalMgr.supervisor:bind(hslock_keys[1], hslock_keys[2], "Lock Screen", function()
-        hs.caffeinate.lockScreen()
-    end)
-end
+-- hslock_keys = hslock_keys or {"alt", "L"}
+-- if string.len(hslock_keys[2]) > 0 then
+--     spoon.ModalMgr.supervisor:bind(hslock_keys[1], hslock_keys[2], "Lock Screen", function()
+--         hs.caffeinate.lockScreen()
+--     end)
+-- end
 
 ----------------------------------------------------------------------------------------------------
 -- resizeM modal environment
@@ -346,28 +347,29 @@ end
 
 ----------------------------------------------------------------------------------------------------
 -- Register browser tab typist: Type URL of current tab of running browser in markdown format. i.e. [title](link)
-hstype_keys = hstype_keys or {"alt", "V"}
-if string.len(hstype_keys[2]) > 0 then
-    spoon.ModalMgr.supervisor:bind(hstype_keys[1], hstype_keys[2], "Type Browser Link", function()
-        local safari_running = hs.application.applicationsForBundleID("com.apple.Safari")
-        local chrome_running = hs.application.applicationsForBundleID("com.google.Chrome")
-        if #safari_running > 0 then
-            local stat, data = hs.applescript('tell application "Safari" to get {URL, name} of current tab of window 1')
-            if stat then hs.eventtap.keyStrokes("[" .. data[2] .. "](" .. data[1] .. ")") end
-        elseif #chrome_running > 0 then
-            local stat, data = hs.applescript('tell application "Google Chrome" to get {URL, title} of active tab of window 1')
-            if stat then hs.eventtap.keyStrokes("[" .. data[2] .. "](" .. data[1] .. ")") end
-        end
-    end)
-end
+-- hstype_keys = hstype_keys or {"alt", "V"}
+-- if string.len(hstype_keys[2]) > 0 then
+--     spoon.ModalMgr.supervisor:bind(hstype_keys[1], hstype_keys[2], "Type Browser Link", function()
+--         local safari_running = hs.application.applicationsForBundleID("com.apple.Safari")
+--         local chrome_running = hs.application.applicationsForBundleID("com.google.Chrome")
+--         if #safari_running > 0 then
+--             local stat, data = hs.applescript('tell application "Safari" to get {URL, name} of current tab of window 1')
+--             if stat then hs.eventtap.keyStrokes("[" .. data[2] .. "](" .. data[1] .. ")") end
+--         elseif #chrome_running > 0 then
+--             local stat, data = hs.applescript('tell application "Google Chrome" to get {URL, title} of active tab of window 1')
+--             if stat then hs.eventtap.keyStrokes("[" .. data[2] .. "](" .. data[1] .. ")") end
+--         end
+--     end)
+-- end
 
 ----------------------------------------------------------------------------------------------------
 -- Register Hammerspoon console
-hsconsole_keys = hsconsole_keys or {"alt", "Z"}
-if string.len(hsconsole_keys[2]) > 0 then
-    spoon.ModalMgr.supervisor:bind(hsconsole_keys[1], hsconsole_keys[2], "Toggle Hammerspoon Console", function() hs.toggleConsole() end)
-end
+-- hsconsole_keys = hsconsole_keys or {"alt", "Z"}
+-- if string.len(hsconsole_keys[2]) > 0 then
+--     spoon.ModalMgr.supervisor:bind(hsconsole_keys[1], hsconsole_keys[2], "Toggle Hammerspoon Console", function() hs.toggleConsole() end)
+-- end
 
 ----------------------------------------------------------------------------------------------------
 -- Finally we initialize ModalMgr supervisor
 spoon.ModalMgr.supervisor:enter()
+
